@@ -10,12 +10,11 @@ export default class {
         this._app = express();
         this._app.set('port', 8080);
         
-        this._app.use(express.static(path.join(__dirname, '../client')));
+        this._app.use(express.static('../index.html'));
         
         // Listen for requests
         var server = this._app.listen(this._app.get('port'), function() {
-            var port = server.address().port;
-            console.log('Magic happens on port ' + port);
+            console.log('directory path ' + __dirname);
         });
     }
 }
