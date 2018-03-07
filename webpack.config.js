@@ -1,21 +1,15 @@
 var path = require('path');
 
-var serverConfig = {
-  target: 'node',
-  entry: './app/server/server.js', 
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'server.js'
-  }
-};
-
 var clientConfig = {
   target: 'web',
-  entry: './app/client/client.js', 
+  entry: [
+    'jquery',
+    './client/client.js',
+  ], 
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'client.js'
   }
 };
 
-module.exports = [ serverConfig, clientConfig ];
+module.exports = [ clientConfig ];
